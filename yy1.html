@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fffaf4">
+  <meta name="description" content="走进成都，赏熊猫、逛古巷、品川味，开启一场舒适惬意的天府之旅。">
+  <title>成都文旅 - 天府之国，烟火成都</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ember: { 50: "#fff7ed", 100: "#ffedd5", 500: "#f47738", 600: "#e6632b", 700: "#c94d20" },
+            bamboo: { 50: "#eff8f2", 100: "#d8efe0", 500: "#438b68", 600: "#347553", 700: "#285d43" },
+            ink: "#26332d",
+            paper: "#fffaf4"
+          },
+          boxShadow: {
+            card: "0 12px 32px rgba(58, 45, 31, 0.08)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+    body { background: #fffaf4; color: #26332d; }
+    .hero-image { transition: opacity 500ms ease; }
+    .carousel-dot[aria-current="true"] { width: 2rem; background: #fff; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased">
+  <!-- 顶部导航：吸顶并提供清晰的页面内跳转 -->
+  <header class="sticky top-0 z-50 border-b border-orange-100/80 bg-paper/95 shadow-sm backdrop-blur">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8" aria-label="主导航">
+      <a href="#home" class="flex shrink-0 items-center gap-2 text-xl font-black tracking-wide text-ember-600" aria-label="成都文旅首页">
+        <span class="grid h-10 w-10 place-items-center rounded-2xl bg-ember-500 text-white" aria-hidden="true">蓉</span>
+        <span>成都文旅</span>
+      </a>
+      <button id="menu-toggle" class="inline-flex items-center justify-center rounded-lg border border-orange-200 p-2 text-ink hover:bg-ember-50 focus:outline-none focus:ring-2 focus:ring-ember-500 md:hidden" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="打开导航菜单">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div id="primary-menu" class="absolute left-0 right-0 top-full hidden border-b border-orange-100 bg-paper px-4 pb-4 shadow-md md:static md:block md:border-0 md:bg-transparent md:p-0 md:shadow-none">
+        <ul class="flex flex-col gap-1 md:flex-row md:items-center md:gap-6">
+          <li><a class="nav-link block rounded-lg px-3 py-2 text-sm font-semibold text-ink hover:bg-ember-50 hover:text-ember-600" href="#home">首页</a></li>
+          <li><a class="nav-link block rounded-lg px-3 py-2 text-sm font-semibold text-ink hover:bg-ember-50 hover:text-ember-600" href="#attractions">景点推荐</a></li>
+          <li><a class="nav-link block rounded-lg px-3 py-2 text-sm font-semibold text-ink hover:bg-ember-50 hover:text-ember-600" href="#food">美食攻略</a></li>
+          <li><a class="nav-link block rounded-lg px-3 py-2 text-sm font-semibold text-ink hover:bg-ember-50 hover:text-ember-600" href="#stay">住宿</a></li>
+          <li><a class="nav-link block rounded-lg px-3 py-2 text-sm font-semibold text-ink hover:bg-ember-50 hover:text-ember-600" href="#journal">游记</a></li>
+          <li><a class="nav-link block rounded-lg px-3 py-2 text-sm font-semibold text-ink hover:bg-ember-50 hover:text-ember-600" href="#contact">联系我们</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 全屏轮播：图片链接可直接替换为正式素材 -->
+    <section id="home" class="relative isolate min-h-[75vh] overflow-hidden bg-ink sm:min-h-[82vh]" aria-label="成都风光轮播">
+      <div class="absolute inset-0">
+        <img id="hero-image" class="hero-image h-full w-full object-cover" src="t04b149464aae94b7e0.jpg" alt="成都大熊猫繁育研究基地风光占位图">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-black/10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/10"></div>
+      </div>
+      <div class="relative mx-auto flex min-h-[75vh] max-w-7xl items-center px-6 py-20 sm:min-h-[82vh] lg:px-8">
+        <div class="max-w-2xl text-white">
+          <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur">
+            <span class="h-2 w-2 rounded-full bg-ember-400" aria-hidden="true"></span>
+            一城烟火气，千年天府韵
+          </p>
+          <h1 class="text-4xl font-black leading-tight tracking-wide sm:text-6xl">天府之国<br><span class="text-orange-200">烟火成都</span></h1>
+          <p id="hero-caption" class="mt-5 max-w-xl text-base leading-8 text-white/90 sm:text-lg">从熊猫的憨态，到古巷的悠然，开启一段自在蓉城时光。</p>
+          <a href="#attractions" class="mt-8 inline-flex items-center gap-2 rounded-full bg-ember-500 px-6 py-3 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-ember-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-ember-600">
+            开始探索 <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="absolute bottom-7 left-1/2 flex -translate-x-1/2 items-center gap-3" aria-label="轮播页码">
+        <button id="carousel-prev" class="grid h-11 w-11 place-items-center rounded-full border border-white/60 bg-black/20 text-white transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white" type="button" aria-label="上一张">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <div id="carousel-dots" class="flex items-center gap-2" role="group" aria-label="选择轮播图片"></div>
+        <button id="carousel-next" class="grid h-11 w-11 place-items-center rounded-full border border-white/60 bg-black/20 text-white transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white" type="button" aria-label="下一张">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+      <span class="sr-only" id="carousel-live" aria-live="polite"></span>
+    </section>
+
+    <!-- 成都简介 -->
+    <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div class="mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-2 md:gap-16">
+        <div class="relative">
+          <img class="aspect-[4/3] w-full rounded-[2rem] object-cover shadow-card" src="t03dde2f2fe9ac1cef0.jpg" alt="成都城市风光占位图" loading="lazy">
+          <div class="absolute -bottom-5 right-5 rounded-2xl bg-white px-5 py-3 shadow-card sm:right-8">
+            <p class="text-sm font-bold text-bamboo-700">慢下来，才是成都</p>
+          </div>
+        </div>
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-bamboo-600">About Chengdu</p>
+          <h2 class="mt-3 text-3xl font-black text-ink sm:text-4xl">一座来了就不想走的城</h2>
+          <p class="mt-6 text-lg leading-9 text-slate-600">天府之国，烟火成都。赏国宝熊猫，逛古巷老街，品地道川味，感受蓉城慢生活。</p>
+          <div class="mt-8 grid grid-cols-3 gap-3 border-t border-orange-100 pt-6 sm:gap-6">
+            <div><p class="text-2xl font-black text-ember-600 sm:text-3xl">2300+</p><p class="mt-1 text-xs text-slate-500 sm:text-sm">年建城历史</p></div>
+            <div><p class="text-2xl font-black text-ember-600 sm:text-3xl">悠闲</p><p class="mt-1 text-xs text-slate-500 sm:text-sm">蓉城生活态度</p></div>
+            <div><p class="text-2xl font-black text-ember-600 sm:text-3xl">巴适</p><p class="mt-1 text-xs text-slate-500 sm:text-sm">成都独特体验</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 热门景点 -->
+    <section id="attractions" class="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-9 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-[0.2em] text-bamboo-600">Places to go</p>
+            <h2 class="mt-2 text-3xl font-black text-ink sm:text-4xl">蓉城必逛景点</h2>
+          </div>
+          <p class="max-w-md text-sm leading-6 text-slate-500">在自然与人文之间，遇见成都的不同模样。</p>
+        </div>
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          <article class="group overflow-hidden rounded-2xl bg-paper shadow-card transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div class="overflow-hidden"><img class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105" src="t016d12f3c8af8886b5.jpg" alt="大熊猫繁育研究基地占位图" loading="lazy"></div>
+            <div class="p-5"><p class="text-xs font-bold tracking-widest text-bamboo-600">NATURE · 自然</p><h3 class="mt-2 text-lg font-bold text-ink">大熊猫繁育研究基地</h3><p class="mt-2 text-sm leading-6 text-slate-500">近距离看国宝熊猫，感受萌趣与自然生机。</p></div>
+          </article>
+          <article class="group overflow-hidden rounded-2xl bg-paper shadow-card transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div class="overflow-hidden"><img class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105" src="t017a556f38878bb756.jpg" alt="宽窄巷子街巷占位图" loading="lazy"></div>
+            <div class="p-5"><p class="text-xs font-bold tracking-widest text-bamboo-600">CULTURE · 人文</p><h3 class="mt-2 text-lg font-bold text-ink">宽窄巷子</h3><p class="mt-2 text-sm leading-6 text-slate-500">穿行青砖灰瓦间，读懂老成都的闲适日常。</p></div>
+          </article>
+          <article class="group overflow-hidden rounded-2xl bg-paper shadow-card transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div class="overflow-hidden"><img class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105" src="t04561c3d2e1d3acac5.jpg" alt="锦里古街占位图" loading="lazy"></div>
+            <div class="p-5"><p class="text-xs font-bold tracking-widest text-bamboo-600">OLD TOWN · 古韵</p><h3 class="mt-2 text-lg font-bold text-ink">锦里古街</h3><p class="mt-2 text-sm leading-6 text-slate-500">红灯映古街，边逛边尝地道小吃与市井风情。</p></div>
+          </article>
+          <article class="group overflow-hidden rounded-2xl bg-paper shadow-card transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div class="overflow-hidden"><img class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105" src="t010ba944646eb95bb1.jpg" alt="都江堰水利工程占位图" loading="lazy"></div>
+            <div class="p-5"><p class="text-xs font-bold tracking-widest text-bamboo-600">LANDMARK · 名胜</p><h3 class="mt-2 text-lg font-bold text-ink">都江堰</h3><p class="mt-2 text-sm leading-6 text-slate-500">探访千年水利工程，领略古人治水智慧。</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 成都美食 -->
+    <section id="food" class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mx-auto mb-10 max-w-2xl text-center">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-ember-600">Taste of Chengdu</p>
+          <h2 class="mt-2 text-3xl font-black text-ink sm:text-4xl">一口入川，越吃越欢</h2>
+          <p class="mt-4 leading-7 text-slate-500">麻辣鲜香之外，还有让人惦念的地道小吃。来成都，把每一餐都过成好滋味。</p>
+        </div>
+        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <article class="group relative overflow-hidden rounded-2xl bg-ink shadow-card">
+            <img class="aspect-[4/5] w-full object-cover opacity-80 transition duration-500 group-hover:scale-105" src="t010ba944646eb95bb1.jpg" alt="成都火锅占位图" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-12 text-white sm:p-6 sm:pt-16"><h3 class="text-xl font-black sm:text-2xl">火锅</h3><p class="mt-1 text-xs text-white/80 sm:text-sm">红油翻滚，热辣过瘾</p></div>
+          </article>
+          <article class="group relative overflow-hidden rounded-2xl bg-ink shadow-card">
+            <img class="aspect-[4/5] w-full object-cover opacity-80 transition duration-500 group-hover:scale-105" src="t013c728a8d961bdb10.jpg" alt="担担面占位图" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-12 text-white sm:p-6 sm:pt-16"><h3 class="text-xl font-black sm:text-2xl">担担面</h3><p class="mt-1 text-xs text-white/80 sm:text-sm">麻辣鲜香，面香筋道</p></div>
+          </article>
+          <article class="group relative overflow-hidden rounded-2xl bg-ink shadow-card">
+            <img class="aspect-[4/5] w-full object-cover opacity-80 transition duration-500 group-hover:scale-105" src="t016d12f3c8af8886b5.jpg" alt="钟水饺占位图" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-12 text-white sm:p-6 sm:pt-16"><h3 class="text-xl font-black sm:text-2xl">钟水饺</h3><p class="mt-1 text-xs text-white/80 sm:text-sm">甜辣回香，经典川味</p></div>
+          </article>
+          <article class="group relative overflow-hidden rounded-2xl bg-ink shadow-card">
+            <img class="aspect-[4/5] w-full object-cover opacity-80 transition duration-500 group-hover:scale-105" src="t017a556f38878bb756.jpg" alt="串串香占位图" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-12 text-white sm:p-6 sm:pt-16"><h3 class="text-xl font-black sm:text-2xl">串串香</h3><p class="mt-1 text-xs text-white/80 sm:text-sm">签签串起，热闹巴适</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 住宿引导 -->
+    <section id="stay" class="bg-bamboo-50 px-4 py-14 sm:px-6 lg:px-8">
+      <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 rounded-3xl bg-white p-7 shadow-card sm:flex-row sm:items-center sm:p-10">
+        <div>
+          <p class="text-sm font-bold tracking-widest text-bamboo-600">STAY IN CHENGDU</p>
+          <h2 class="mt-2 text-2xl font-black text-ink sm:text-3xl">住进成都的慢时光</h2>
+          <p class="mt-3 max-w-2xl leading-7 text-slate-500">从热闹商圈到安静街巷，挑一处合心意的落脚点，让旅程自在舒适。</p>
+        </div>
+        <a href="#contact" class="shrink-0 rounded-full bg-bamboo-600 px-6 py-3 font-bold text-white transition hover:bg-bamboo-700 focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:ring-offset-2">规划住宿行程</a>
+      </div>
+    </section>
+
+    <!-- 旅游攻略资讯 -->
+    <section id="journal" class="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-9">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-bamboo-600">Travel journal</p>
+          <h2 class="mt-2 text-3xl font-black text-ink sm:text-4xl">蓉城旅行灵感</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="overflow-hidden rounded-2xl border border-orange-100 bg-paper transition hover:-translate-y-1 hover:shadow-card">
+            <img class="aspect-[16/10] w-full object-cover" src="t046c5d2565fb355a3c.jpg" alt="成都一日游路线占位图" loading="lazy">
+            <div class="p-5"><p class="text-xs font-bold text-ember-600">路线推荐 · 轻松一日</p><h3 class="mt-2 text-lg font-bold text-ink">第一次来成都，这样逛刚刚好</h3><p class="mt-2 text-sm leading-6 text-slate-500">从早茶到夜游，串起老街、熊猫与城市烟火。</p></div>
+          </article>
+          <article class="overflow-hidden rounded-2xl border border-orange-100 bg-paper transition hover:-translate-y-1 hover:shadow-card">
+            <img class="aspect-[16/10] w-full object-cover" src="t01914efbc4e1d3f406.jpg" alt="成都美食攻略占位图" loading="lazy">
+            <div class="p-5"><p class="text-xs font-bold text-ember-600">美食地图 · 川味寻踪</p><h3 class="mt-2 text-lg font-bold text-ink">从街边小馆开始的成都味道</h3><p class="mt-2 text-sm leading-6 text-slate-500">火锅、面食与小吃，一份不踩雷的味觉清单。</p></div>
+          </article>
+          <article class="overflow-hidden rounded-2xl border border-orange-100 bg-paper transition hover:-translate-y-1 hover:shadow-card">
+            <img class="aspect-[16/10] w-full object-cover" src="t04561c3d2e1d3acac5.jpg" alt="成都慢生活占位图" loading="lazy">
+            <div class="p-5"><p class="text-xs font-bold text-ember-600">城市漫步 · 慢生活</p><h3 class="mt-2 text-lg font-bold text-ink">留半天给成都的茶馆和公园</h3><p class="mt-2 text-sm leading-6 text-slate-500">放慢脚步，在一盏茶、一片绿意里感受蓉城。</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer id="contact" class="bg-ink px-4 py-10 text-white sm:px-6 lg:px-8">
+    <div class="mx-auto flex max-w-7xl flex-col gap-7 md:flex-row md:items-center md:justify-between">
+      <div>
+        <a href="#home" class="text-xl font-black tracking-wide text-orange-200">成都文旅</a>
+        <p class="mt-2 text-sm text-white/70">天府之国，烟火成都。期待与你蓉城相见。</p>
+      </div>
+      <div class="text-sm leading-7 text-white/80">
+        <p>联系我们：028-1234-5678</p>
+        <p>邮箱：hello@chengdu-travel.example</p>
+      </div>
+    </div>
+    <div class="mx-auto mt-8 max-w-7xl border-t border-white/15 pt-5 text-xs text-white/50">
+      <p>© 2026 成都文旅 · 页面图片均为占位图，正式上线前请替换为授权素材。</p>
+    </div>
+  </footer>
+
+  <script>
+    // 简单轮播控制：自动播放，并在鼠标悬停或键盘聚焦时暂停。
+    const slides = [
+      { title: "成都大熊猫繁育研究基地", image: "t0189368e473c641b20.jpg", alt: "成都大熊猫繁育研究基地风光占位图", caption: "从熊猫的憨态，到古巷的悠然，开启一段自在蓉城时光。" },
+      { title: "锦里古街", image: "t013277085bffceb29f.jpg", alt: "锦里古街风光占位图", caption: "沿着红灯与青石板路，走进热闹而古朴的成都记忆。" },
+      { title: "宽窄巷子", image: "t03dde2f2fe9ac1cef0.jpg", alt: "宽窄巷子风光占位图", caption: "在宽巷子与窄巷子之间，遇见悠闲的老成都生活。" },
+      { title: "都江堰", image: "t010ba944646eb95bb1.jpg", alt: "都江堰风光占位图", caption: "看千年水利工程与青山绿水，感受天府源远流长。" }
+    ];
+    const heroImage = document.getElementById("hero-image");
+    const heroCaption = document.getElementById("hero-caption");
+    const carouselDots = document.getElementById("carousel-dots");
+    const carouselLive = document.getElementById("carousel-live");
+    const hero = document.getElementById("home");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let activeSlide = 0;
+    let autoplay;
+
+    function showSlide(index) {
+      activeSlide = (index + slides.length) % slides.length;
+      const slide = slides[activeSlide];
+      heroImage.src = slide.image;
+      heroImage.alt = slide.alt;
+      heroCaption.textContent = slide.caption;
+      carouselLive.textContent = `当前展示：${slide.title}`;
+      [...carouselDots.children].forEach((dot, dotIndex) => {
+        dot.setAttribute("aria-current", String(dotIndex === activeSlide));
+        dot.setAttribute("aria-label", `第 ${dotIndex + 1} 张：${slides[dotIndex].title}`);
+      });
+    }
+
+    function stopAutoplay() {
+      window.clearInterval(autoplay);
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      if (!reducedMotion) autoplay = window.setInterval(() => showSlide(activeSlide + 1), 5000);
+    }
+
+    slides.forEach((slide, index) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "carousel-dot h-2.5 w-2.5 rounded-full bg-white/60 transition-all focus:outline-none focus:ring-2 focus:ring-white";
+      dot.setAttribute("aria-label", `第 ${index + 1} 张：${slide.title}`);
+      dot.setAttribute("aria-current", String(index === 0));
+      dot.addEventListener("click", () => showSlide(index));
+      carouselDots.appendChild(dot);
+    });
+
+    document.getElementById("carousel-prev").addEventListener("click", () => showSlide(activeSlide - 1));
+    document.getElementById("carousel-next").addEventListener("click", () => showSlide(activeSlide + 1));
+    hero.addEventListener("mouseenter", stopAutoplay);
+    hero.addEventListener("mouseleave", startAutoplay);
+    hero.addEventListener("focusin", stopAutoplay);
+    hero.addEventListener("focusout", startAutoplay);
+    startAutoplay();
+
+    // 移动端菜单点击后收起，避免导航遮挡页面内容。
+    const menuToggle = document.getElementById("menu-toggle");
+    const primaryMenu = document.getElementById("primary-menu");
+    menuToggle.addEventListener("click", () => {
+      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+      menuToggle.setAttribute("aria-label", isExpanded ? "打开导航菜单" : "关闭导航菜单");
+      primaryMenu.classList.toggle("hidden", isExpanded);
+    });
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "打开导航菜单");
+        primaryMenu.classList.add("hidden");
+      });
+    });
+  </script>
+</body>
+</html>
